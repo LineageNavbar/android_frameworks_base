@@ -23,8 +23,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -34,7 +34,7 @@ import com.android.systemui.R;
 /**
  * Quick settings common detail list view with line items.
  */
-public class QSDetailItemsList extends FrameLayout {
+public class QSDetailItemsList extends LinearLayout {
     private static final String TAG = "QSDetailItemsList";
 
     private ListView mListView;
@@ -44,6 +44,8 @@ public class QSDetailItemsList extends FrameLayout {
 
     public QSDetailItemsList(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
+        mTag = TAG;
     }
 
     public static QSDetailItemsList convertOrInflate(Context context,
