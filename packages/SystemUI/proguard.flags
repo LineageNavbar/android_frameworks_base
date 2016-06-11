@@ -15,3 +15,6 @@
 -keep class com.android.systemui.recents.*
 
 -dontwarn com.cyngn.**
+
+# org.dirtyunicorns.navigation trail-drawaing library fix
+-dontwarn com.google.common.annotations.VisibleForTesting
