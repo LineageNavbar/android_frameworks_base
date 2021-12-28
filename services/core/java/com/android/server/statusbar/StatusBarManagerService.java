@@ -138,9 +138,9 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
 
     /**
      * In apps targeting {@link android.os.Build.VERSION_CODES#TIRAMISU} or higher, calling
-     * {@link android.service.quicksettings.TileService#requestListeningState} will check that the 
-     * calling package (uid) and the package of the target {@link android.content.ComponentName} 
-     * match. It'll also make sure that the context used can take actions on behalf of the current 
+     * {@link android.service.quicksettings.TileService#requestListeningState} will check that the
+     * calling package (uid) and the package of the target {@link android.content.ComponentName}
+     * match. It'll also make sure that the context used can take actions on behalf of the current
      * user.
      */
     @ChangeId
@@ -956,6 +956,16 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
     @Override
     public boolean isTracing() {
         return mTracingEnabled;
+    }
+
+    @Override
+    public void toggleCameraFlash() {
+        if (mBar != null) {
+            try {
+                mBar.toggleCameraFlash();
+            } catch (RemoteException ex) {
+            }
+        }
     }
 
     // TODO(b/117478341): make it aware of multi-display if needed.
